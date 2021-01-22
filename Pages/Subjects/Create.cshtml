@@ -1,0 +1,106 @@
+﻿@page
+@model SchoolPlanner2.Pages.Subjects.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Subject</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Subject.Name" class="control-label"></label>
+                <input asp-for="Subject.Name" class="form-control" />
+                <span asp-validation-for="Subject.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject.Day" class="control-label"></label>
+                <select asp-for="Subject.Day" class="form-control">
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject.StartTime" class="control-label"></label>
+                <input asp-for="Subject.StartTime" class="form-control" />
+                <select asp-for="Subject.StartTime" class="form-control">
+                    <option value="08:00">08:00</option>
+                    <option value="08:30">08:30</option>
+                    <option value="09:00">09:00</option>
+                    <option value="09:30">09:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:30">16:30</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:30">17:30</option>
+
+                </select>
+                <span asp-validation-for="Subject.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject.EndTime" class="control-label"></label>
+                <input asp-for="Subject.EndTime" class="form-control" />
+                <select asp-for="Subject.StartTime" class="form-control">
+
+                    <option value="09:30">08:30</option>
+                    <option value="10:00">08:00</option>
+                    <option value="10:30">08:30</option>
+                    <option value="11:00">08:00</option>
+                    <option value="11:30">08:30</option>
+                    <option value="12:00">08:00</option>
+                    <option value="12:30">08:30</option>
+                    <option value="13:00">08:00</option>
+                    <option value="13:30">08:30</option>
+                    <option value="14:00">08:00</option>
+                    <option value="14:30">08:30</option>
+                    <option value="15:00">08:00</option>
+                    <option value="15:30">08:30</option>
+                    <option value="16:00">08:00</option>
+                    <option value="16:30">08:30</option>
+                    <option value="17:00">08:00</option>
+                    <option value="17:30">08:30</option>
+                    <option value="18:00">08:00</option>
+                    <option value="18:30">08:30</option>
+                    <option value="19:00">08:00</option>
+                </select>
+                <span asp-validation-for="Subject.EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject.TeacherID" class="control-label"></label>
+                <select asp-for="Subject.TeacherID" class ="form-control" asp-items="ViewBag.TeacherID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,48 @@
+﻿@page
+@model SchoolPlanner2.Pages.Exams.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Exam[0].DateAndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exam[0].Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exam[0].Subject)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Exam) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject.SubjectID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ExamID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ExamID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ExamID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
