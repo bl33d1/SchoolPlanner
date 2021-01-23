@@ -32,71 +32,81 @@
             </div>
             <div class="form-group">
                 <label asp-for="Subject.StartTime" class="control-label"></label>
-                <input asp-for="Subject.StartTime" class="form-control" />
-                <select asp-for="Subject.StartTime" class="form-control">
-                    <option value="08:00">08:00</option>
-                    <option value="08:30">08:30</option>
-                    <option value="09:00">09:00</option>
-                    <option value="09:30">09:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:30">14:30</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:30">15:30</option>
-                    <option value="16:00">16:00</option>
-                    <option value="16:30">16:30</option>
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-
+                <select asp-for="Subject.StartTime" class="form-control" id="start">
+                    <option value="0800">08:00</option>
+                    <option value="0830">08:30</option>
+                    <option value="0900">09:00</option>
+                    <option value="0930">09:30</option>
+                    <option value="1000">10:00</option>
+                    <option value="1030">10:30</option>
+                    <option value="1100">11:00</option>
+                    <option value="1130">11:30</option>
+                    <option value="1200">12:00</option>
+                    <option value="1230">12:30</option>
+                    <option value="1300">13:00</option>
+                    <option value="1330">13:30</option>
+                    <option value="1400">14:00</option>
+                    <option value="1430">14:30</option>
+                    <option value="1500">15:00</option>
+                    <option value="1530">15:30</option>
+                    <option value="1600">16:00</option>
+                    <option value="1630">16:30</option>
+                    <option value="1700">17:00</option>
+                    <option value="1730">17:30</option>
                 </select>
                 <span asp-validation-for="Subject.StartTime" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Subject.EndTime" class="control-label"></label>
-                <input asp-for="Subject.EndTime" class="form-control" />
-                <select asp-for="Subject.StartTime" class="form-control">
-
-                    <option value="09:30">08:30</option>
-                    <option value="10:00">08:00</option>
-                    <option value="10:30">08:30</option>
-                    <option value="11:00">08:00</option>
-                    <option value="11:30">08:30</option>
-                    <option value="12:00">08:00</option>
-                    <option value="12:30">08:30</option>
-                    <option value="13:00">08:00</option>
-                    <option value="13:30">08:30</option>
-                    <option value="14:00">08:00</option>
-                    <option value="14:30">08:30</option>
-                    <option value="15:00">08:00</option>
-                    <option value="15:30">08:30</option>
-                    <option value="16:00">08:00</option>
-                    <option value="16:30">08:30</option>
-                    <option value="17:00">08:00</option>
-                    <option value="17:30">08:30</option>
-                    <option value="18:00">08:00</option>
-                    <option value="18:30">08:30</option>
-                    <option value="19:00">08:00</option>
+                <select asp-for="Subject.EndTime" class="form-control" id="end">
+                    <option value="0930">09:30</option>
+                    <option value="1000">10:00</option>
+                    <option value="1030">10:30</option>
+                    <option value="1100">11:00</option>
+                    <option value="1130">11:30</option>
+                    <option value="1200">12:00</option>
+                    <option value="1230">12:30</option>
+                    <option value="1300">13:00</option>
+                    <option value="1330">13:30</option>
+                    <option value="1400">14:00</option>
+                    <option value="1430">14:30</option>
+                    <option value="1500">15:00</option>
+                    <option value="1530">15:30</option>
+                    <option value="1600">16:00</option>
+                    <option value="1630">16:30</option>
+                    <option value="1700">17:00</option>
+                    <option value="1730">17:30</option>
+                    <option value="1800">18:00</option>
+                    <option value="1830">18:30</option>
+                    <option value="1900">19:00</option>
                 </select>
                 <span asp-validation-for="Subject.EndTime" class="text-danger"></span>
             </div>
+           
             <div class="form-group">
                 <label asp-for="Subject.TeacherID" class="control-label"></label>
-                <select asp-for="Subject.TeacherID" class ="form-control" asp-items="ViewBag.TeacherID"></select>
+                <select onclick="checkTime()" asp-for="Subject.TeacherID" class="form-control" asp-items="ViewBag.TeacherID">
+                    <option hidden disabled selected> -- select an option -- </option>
+                </select>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" id="final"/>
             </div>
         </form>
     </div>
 </div>
-
+<script>
+    function checkTime() {
+        var start = document.getElementById("start");
+        var startResult = start.options[start.selectedIndex].value;
+        var end = document.getElementById("end");
+        var endResult = end.options[end.selectedIndex].value;
+        if (startResult > endResult) {
+            alert("End time should be less than Start time");
+        }
+    }
+</script>
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
