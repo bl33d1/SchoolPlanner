@@ -11,11 +11,25 @@ namespace SchoolPlanner.Data
         {
             context.Database.EnsureCreated();
 
+            if (context.Teachers.Any())
+            {
+                return;
+            }
+            else
+            {
+                var teachers = new Teacher[]
+{
+                new Teacher{Name="Xhelal"},
+                new Teacher{Name="Vesa"}
+};
+                context.Teachers.AddRange(teachers);
+                context.SaveChanges();
+            }
 
             // Look for any Subjects.
             if (context.Subjects.Any())
             {
-                return;   // DB has been seeded
+                //return;   // DB has been seeded
             }
 
             var Subjects = new Subject[]
@@ -24,8 +38,8 @@ namespace SchoolPlanner.Data
 
             };
 
-            context.Subjects.AddRange(Subjects);
-            context.SaveChanges();
+            //context.Subjects.AddRange(Subjects);
+            //context.SaveChanges();
 
             var tasks = new Task[]
             {
@@ -33,16 +47,10 @@ namespace SchoolPlanner.Data
 
             };
 
-            context.Tasks.AddRange(tasks);
-            context.SaveChanges();
+            //context.Tasks.AddRange(tasks);
+            //context.SaveChanges();
 
-            var teachers = new Teacher[]
-{
-                new Teacher{Name="Xhelal"},
-                new Teacher{Name="Vesa"}
-};
-            context.Teachers.AddRange(teachers);
-            context.SaveChanges();
+
 
         }
     }

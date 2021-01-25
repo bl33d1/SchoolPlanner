@@ -1,0 +1,338 @@
+﻿@page
+@model SchoolPlanner2.Pages.AdminPanel.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="weeklyOverview">Weekly Overview</h1>
+
+@*<p>
+        Orari
+    </p>*@
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subject[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subject[0].StartTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subject[0].EndTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subject[0].Teacher)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subject[0].Day)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model.Subject) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Teacher.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Day)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.SubjectID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.SubjectID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.SubjectID">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@
+
+@*<table class="table">
+
+        <thead>
+            <tr>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Subject)
+            {
+            <tr>
+                <td>
+                    @if (item.Day.Equals("Monday"))
+                    {@Html.DisplayFor(modelItem => item.Name)}
+                </td>
+                <td>
+                    @if (item.Day.Equals("Tuesday"))
+                    {@Html.DisplayFor(modelItem => item.Name)}
+                </td>
+                <td>
+                    @if (item.Day.Equals("Wednesday"))
+                    {@Html.DisplayFor(modelItem => item.Name)}
+                </td>
+                <td>
+                    @if (item.Day.Equals("Thursday"))
+                    {@Html.DisplayFor(modelItem => item.Name)}
+                </td>
+                <td>
+                    @if (item.Day.Equals("Friday"))
+                    {@Html.DisplayFor(modelItem => item.Name)}
+                </td>
+                <td>
+                    @if (item.Day.Equals("Saturday"))
+                    {@Html.DisplayFor(modelItem => item.Name)}
+                </td>
+                <td>
+                    @if (item.Day.Equals("Sunday"))
+                    {@Html.DisplayFor(modelItem => item.Name)}
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>*@
+
+
+<div class="div-orari">
+    <table id="weekday">
+        <thead>
+            <tr>
+                <th>Monday</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Subject)
+            {
+                <tr>
+                    <td>
+                        @if (item.Day.Equals("Monday"))
+                        {@Html.DisplayFor(modelItem => item.Name)}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <table id="weekday">
+        <thead>
+            <tr>
+                <th>Tuesday</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Subject)
+            {
+                <tr>
+                    <td>
+                        @if (item.Day.Equals("Tuesday"))
+                        {@Html.DisplayFor(modelItem => item.Name)}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table id="weekday">
+        <thead>
+            <tr>
+                <th>Wednesday</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Subject)
+            {
+                <tr>
+                    <td>
+                        @if (item.Day.Equals("Wednesday"))
+                        {@Html.DisplayFor(modelItem => item.Name)}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <table id="weekday">
+
+        <thead>
+            <tr>
+                <th>Thursday</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Subject)
+            {
+                <tr>
+                    <td>
+                        @if (item.Day.Equals("Thursday"))
+                        {@Html.DisplayFor(modelItem => item.Name)}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <table id="weekday">
+
+        <thead>
+            <tr>
+                <th>Friday</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Subject)
+            {
+                <tr>
+                    <td>
+                        @if (item.Day.Equals("Friday"))
+                        {@Html.DisplayFor(modelItem => item.Name)}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <table id="weekday">
+
+        <thead>
+            <tr>
+                <th>Saturday</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Subject)
+            {
+                <tr>
+                    <td>
+                        @if (item.Day.Equals("Saturday"))
+                        {@Html.DisplayFor(modelItem => item.Name)}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <table id="weekday">
+
+        <thead>
+            <tr>
+                <th>Sunday</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Subject)
+            {
+                <tr>
+                    <td>
+                        @if (item.Day.Equals("Sunday"))
+                        {@Html.DisplayFor(modelItem => item.Name)}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<br />
+<div class="taskAndExam">
+    <div class="AllTaskDiv">
+        <h1 class="tasksOverview">
+            Tasks Overview
+        </h1>
+
+        @*Ketu paraqiten Tasks*@
+
+        @foreach (var item in Model.Task)
+        {
+            <div class="singleTaskDiv">
+                @Html.DisplayFor(modelItem => item.Title)
+                @Html.DisplayFor(modelItem => item.Detail)
+                @Html.DisplayFor(modelItem => item.TypeOfTask)
+                @Html.DisplayFor(modelItem => item.DueDate)
+                @Html.DisplayFor(modelItem => item.Subject.SubjectID)
+            </div>
+        }
+    </div>
+    <div class="AllExamDiv">
+        <h1 class="tasksOverview">
+            Exam Overview
+        </h1>
+
+        @*Ketu paraqiten Tasks*@
+
+        @foreach (var item in Model.Task)
+        {
+            <div class="singleTaskDiv">
+                @Html.DisplayFor(modelItem => item.Title)
+                @Html.DisplayFor(modelItem => item.Detail)
+                @Html.DisplayFor(modelItem => item.TypeOfTask)
+                @Html.DisplayFor(modelItem => item.DueDate)
+                @Html.DisplayFor(modelItem => item.Subject.SubjectID)
+            </div>
+        }
+    </div>
+
+</div>
+
+@*<div class="divTable" style="width: 200px;height: 50px; border: 4px solid #000;">*@
+
+<style>
+    .AllTaskDiv{
+        float:left;
+    }
+    .AllExamDiv{
+        float:right;
+    }
+    #weekday {
+        padding-left: 50px;
+        display: inline-block;
+        text-align: center
+    }
+
+        #weekday th {
+            color: darkslateblue
+        }
+
+        #weekday td {
+            color: black;
+            position: inherit;
+            font-size: 14px
+        }
+
+    .div-orari {
+        display: flex;
+    }
+
+    .weeklyOverview {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .tasksOverview {
+        text-align:left;
+    }
+
+    .singleTaskDiv {
+        width: 200px;
+        height: 50px;
+        margin-top:20px;  
+        border: 4px solid #000;
+    }
+</style>
