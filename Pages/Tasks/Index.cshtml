@@ -26,6 +26,9 @@
                 @Html.DisplayNameFor(model => model.Task[0].DueDate)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Task[0].isDone)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Task[0].Subject)
             </th>
             <th></th>
@@ -45,6 +48,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isDone)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Subject.SubjectID)

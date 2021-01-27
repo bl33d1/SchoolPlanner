@@ -21,6 +21,7 @@ namespace SchoolPlanner.Models
         public TypeOfTask TypeOfTask { get; set; }
         [Display(Name = "Due date")]
         public DateTime DueDate { get; set; }
+        public bool isDone { get; set; }
         public Subject Subject { get; set; }
     }
 }
