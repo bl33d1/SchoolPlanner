@@ -462,3 +462,4 @@ D:\projects\SchoolPlanner\SchoolPlanner2\obj\Debug\netcoreapp3.1\Razor\Pages\Tas
 D:\projects\SchoolPlanner\SchoolPlanner2\obj\Debug\netcoreapp3.1\Razor\Pages\Tasks\Details.cshtml.g.cs
 D:\projects\SchoolPlanner\SchoolPlanner2\obj\Debug\netcoreapp3.1\Razor\Pages\Tasks\Edit.cshtml.g.cs
 D:\projects\SchoolPlanner\SchoolPlanner2\obj\Debug\netcoreapp3.1\Razor\Pages\Tasks\Index.cshtml.g.cs
+D:\projects\SchoolPlanner\SchoolPlanner2\obj\Debug\netcoreapp3.1\Razor\Pages\Details\Details.cshtml.g.cs

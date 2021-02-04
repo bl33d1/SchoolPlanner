@@ -32,7 +32,9 @@ namespace SchoolPlanner2.Pages.AdminPanel
                 .Include(s => s.Teacher).ToListAsync();
             
             Exam = await _context.Exams
-                .Include(e => e.Subject).ToListAsync();
+                .Include(e => e.Subject)
+                .Where(e => e.DateAndTime > DateTime.Now)
+                .ToListAsync();
             Exam = Exam.OrderBy(o => o.DateAndTime).ToList();
 
             Task = await _context.Tasks
