@@ -33,15 +33,19 @@
     </thead>
     <tbody>
 @foreach (var item in Model.Subject) {
+    var endDate1 = item.EndTime.ToString().Substring(0, 2);
+    var endDate2 = item.EndTime.ToString().Substring(2, 2);
+    var startDate1 = item.StartTime.ToString().Substring(0, 2);
+    var startDate2 = item.StartTime.ToString().Substring(2, 2);
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StartTime)
+                @Html.DisplayFor(modelItem => startDate1):@Html.DisplayFor(modelItem => startDate2)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EndTime)
+                @Html.DisplayFor(modelItem => endDate1):@Html.DisplayFor(modelItem => endDate2)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Teacher.Name)

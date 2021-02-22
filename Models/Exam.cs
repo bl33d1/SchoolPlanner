@@ -11,7 +11,6 @@ namespace SchoolPlanner.Models
         public int ExamID { get; set; }
         [Display(Name = "Subject")]
         public int SubjectID { get; set; }
-
         [Display(Name = "Date and Time")]
         public DateTime DateAndTime { get; set; }
         public string Room { get; set; }

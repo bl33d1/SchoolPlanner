@@ -102,7 +102,7 @@
         var startResult = start.options[start.selectedIndex].value;
         var end = document.getElementById("end");
         var endResult = end.options[end.selectedIndex].value;
-        if (startResult > endResult) {
+        if (startResult > endResult || startResult == endResult) {
             alert("Start time should be less than End time");
         }
     }

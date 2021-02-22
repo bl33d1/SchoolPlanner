@@ -264,13 +264,14 @@
         {
             if (item.DueDate > DateTime.Now)
             {
+            var DueDateFormated = item.DueDate.ToString().Substring(0, 16);
     <div class="singleTaskDiv">
         <a asp-page="../Tasks/Edit" asp-route-id="@item.TaskID"><p class="taskTitle">@Html.DisplayFor(modelItem => item.Title)</p></a>
         <p class="taskDetail">@Html.DisplayFor(modelItem => item.Detail)</p>
         <p class="taskType">@Html.DisplayFor(modelItem => item.TypeOfTask)</p>
         <br />
         <p class="taskSubject">@Html.DisplayFor(modelItem => item.Subject.Name)</p>
-        <p class="taskDueDate">@Html.DisplayFor(modelItem => item.DueDate)</p>
+        <p class="taskDueDate">@Html.DisplayFor(modelItem => DueDateFormated)</p>
         @*<a href="@Url.Action("Complete", new { id = item.TaskID })">Complete</a>*@
 
     </div>
@@ -281,13 +282,14 @@
         {
             if (item.DueDate < DateTime.Now)
             {
+                var DueDateFormated = item.DueDate.ToString().Substring(0, 16);
     <div class="singleTaskDiv">
         <a asp-page="../Tasks/Edit" asp-route-id="@item.TaskID"><p class="taskTitle">@Html.DisplayFor(modelItem => item.Title)</p></a>
         <p class="taskDetail">@Html.DisplayFor(modelItem => item.Detail)</p>
         <p class="taskType">@Html.DisplayFor(modelItem => item.TypeOfTask)</p>
         <br />
         <p class="taskSubject">@Html.DisplayFor(modelItem => item.Subject.Name)</p>
-        <p class="taskDueDate">@Html.DisplayFor(modelItem => item.DueDate)</p>
+        <p class="taskDueDate">@Html.DisplayFor(modelItem => DueDateFormated)</p>
         @*<a href="@Url.Action("Complete", new { id = item.TaskID })">Complete</a>*@
 
     </div>
@@ -304,11 +306,11 @@
 
         @foreach (var item in Model.Exam)
         {
+            var DueDateFormated = item.DateAndTime.ToString().Substring(0, 16);
     <div class="singleExamDiv">
         <p class="examName">@Html.DisplayFor(modelItem => item.Subject.Name)</p>
-        <p>Due Date:</p>
-        <p class="examDate">@Html.DisplayFor(modelItem => item.DateAndTime)</p>
         <p class="examRoom">@Html.DisplayFor(modelItem => item.Room)</p>
+        <p class="examDate">@Html.DisplayFor(modelItem => DueDateFormated)</p>
     </div>
         }
     </div>
@@ -330,16 +332,17 @@
     .examName{
         font-size:20px;
         text-align:center;
-
+        margin-bottom: 0px
     }
 
     .examDate {
-        display: inline-block;
+        text-align: center;
+        margin-bottom: 0px
     }
 
-    .examRoom{
-        display:inline-block;
-        float:right;
+    .examRoom {
+        text-align: center;
+        margin-bottom: 0px
     }
 
     .tasksOverview2{
@@ -392,19 +395,26 @@
         width: 300px;
         height: 85px;
         margin-bottom: 40px;
+        border: 2px solid grey;
+        padding-left: 5px;
+        padding-right: 1px;
     }
 
     .singleExamDiv {
         width: 250px;
         height: 85px;
         margin-bottom: 40px;
+        border: 2px solid grey;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .taskTitle {
         display: block;
         text-align: center;
         font-size: 20px;
-        color: blue;
+        color: black;
         margin-bottom: 0px;
     }
 
@@ -424,6 +434,7 @@
     .taskDueDate {
         display: inline-block;
         margin-bottom: 0px;
+        text-align:center;
     }
 
     .taskSubject {
@@ -438,6 +449,11 @@
 
     .taskDetailLink{
 
+    }
+
+    .tasksOverview2{
+        font-size:20px;
+        font-weight:bolder;
     }
 </style>
 
